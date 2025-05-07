@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gorilla Tag Ranked</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="media/Gorilla%20Tag%20Ranked%20logo.png" alt="Gorilla Tag Ranked Logo" class="logo">
+        <h1>Gorilla Tag Ranked</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Rankings</a></li>
+            <li><a href="about-and-rules.html">About & Rules</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="rankings">
+        <h2>Player Rankings</h2>
+
+        <div class="filters">
+            <div class="search-box">
+                <input type="text" id="playerSearch" placeholder="Search player...">
+            </div>
+            <div class="sort-options">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="rank">Rank</option>
+                    <option value="rp">RP</option>
+                    <option value="tagCount">Tag Count</option>
+                    <option value="runtime">Runtime</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="rankingsTable">
+                <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>RP</th>
+                    <th>Tag Count</th>
+                    <th>Runtime</th>
+                </tr>
+                </thead>
+                <tbody id="rankingsBody">
+
+                </tbody>
+            </table>
+        </div>
+
+        <h1>Ranked Servers are currently down...</h1>
+
+        <div class="pagination">
+            <button id="prevPage">Previous</button>
+            <span id="currentPage">Page 1</span>
+            <button id="nextPage">Next</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Gorilla Tag Ranked</p>
+        <div class="social-links">
+            <a href="https://discord.gg/rppzqENgkp" class="social-icon">Discord</a>
+            <a href="https://www.youtube.com/@GorillaTagRankedOfficial" class="social-icon">YouTube</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // Ensure data loads immediately after a page load
+    window.onload = function() {
+        console.log("Window loaded, initializing player data");
+        if (document.getElementById('rankingsBody')) {
+            // Force data load
+            filteredPlayers = [...mockPlayers];
+            sortPlayers('rank', 'desc');
+            renderPlayers();
+        }
+    };
+</script>
+</body>
+</html>
